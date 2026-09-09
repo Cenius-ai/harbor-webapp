@@ -1,0 +1,119 @@
+@import "tailwindcss";
+@import "@fontsource/literata/400.css";
+@import "@fontsource/literata/500.css";
+@import "@fontsource/literata/600.css";
+@import "@fontsource/literata/700.css";
+@import "@fontsource/literata/400-italic.css";
+
+@theme {
+  /* Primitives — neutral ramp built around the committed accent (hue 143) */
+  --color-neutral-50: oklch(0.98 0.005 143);
+  --color-neutral-100: oklch(0.95 0.008 143);
+  --color-neutral-200: oklch(0.88 0.015 143);
+  --color-neutral-300: oklch(0.78 0.020 143);
+  --color-neutral-400: oklch(0.65 0.025 143);
+  --color-neutral-500: oklch(0.52 0.025 143);
+  --color-neutral-600: oklch(0.38 0.020 143);
+  --color-neutral-700: oklch(0.28 0.018 143);
+  --color-neutral-800: oklch(0.20 0.015 143);
+  --color-neutral-900: oklch(0.14 0.010 143);
+
+  /* Accent — the committed oklch(0.58 0.11 143), hex twin #508b4d */
+  --color-brand-50: oklch(0.96 0.03 143);
+  --color-brand-100: oklch(0.92 0.05 143);
+  --color-brand-200: oklch(0.85 0.08 143);
+  --color-brand-500: oklch(0.58 0.11 143);
+  --color-brand-600: oklch(0.48 0.10 143);
+  --color-brand-700: oklch(0.38 0.09 143);
+
+  /* Semantic tokens — components consume ONLY these */
+  --color-surface: oklch(0.99 0.002 143);
+  --color-surface-alt: oklch(0.96 0.006 143);
+  --color-bg: oklch(1 0 0);
+  --color-fg: oklch(0.18 0.015 143);
+  --color-fg-muted: oklch(0.48 0.025 143);
+  --color-fg-subtle: oklch(0.62 0.025 143);
+  --color-border: oklch(0.88 0.015 143);
+  --color-border-light: oklch(0.93 0.008 143);
+  --color-accent: oklch(0.58 0.11 143);
+  --color-accent-hover: oklch(0.48 0.10 143);
+  --color-accent-fg: oklch(0.98 0 0);
+  --color-accent-subtle: oklch(0.94 0.04 143);
+  --color-ring: oklch(0.58 0.11 143);
+
+  /* Typography */
+  --font-family-display: 'Literata', Georgia, 'Times New Roman', serif;
+  --font-family-body: 'Literata', Georgia, 'Times New Roman', serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* Spacing scale (4px base) */
+  --spacing-section: 3rem;
+  --spacing-content: 1.5rem;
+
+  /* Radius — zero for hairline editorial */
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-family-body);
+    color: var(--color-fg);
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-display);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 1.875rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+
+  p { line-height: 1.7; }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  /* Focus ring */
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--color-accent-subtle);
+    color: var(--color-fg);
+  }
+
+  /* Dark mode */
+  .dark {
+    --color-surface: oklch(0.22 0.012 143);
+    --color-surface-alt: oklch(0.25 0.010 143);
+    --color-bg: oklch(0.18 0.012 143);
+    --color-fg: oklch(0.93 0.005 143);
+    --color-fg-muted: oklch(0.70 0.015 143);
+    --color-fg-subtle: oklch(0.58 0.020 143);
+    --color-border: oklch(0.30 0.015 143);
+    --color-border-light: oklch(0.25 0.010 143);
+    --color-accent: oklch(0.64 0.11 143);
+    --color-accent-hover: oklch(0.72 0.12 143);
+    --color-accent-fg: oklch(0.14 0.010 143);
+    --color-accent-subtle: oklch(0.26 0.04 143);
+    --color-ring: oklch(0.64 0.11 143);
+  }
+}
